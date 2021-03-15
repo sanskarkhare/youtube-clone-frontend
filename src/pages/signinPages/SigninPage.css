@@ -1,0 +1,28 @@
+.signinPage {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.signinPage .container {
+    border: 2px solid grey;
+    box-shadow: -5px 5px darkgray;
+    width: 500px;
+    height: 400px;
+}
+
+.signinPage .container .top {
+    background-color: white;
+    border: none;
+    text-align: center;
+}
+
+.signinPage .container .body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 200px;
+}
