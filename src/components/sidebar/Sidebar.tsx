@@ -1,9 +1,34 @@
-import React from 'react'
+import React, { useContext } from "react";
 
-export default function Sidebar() {
-    return (
-        <div style={{ width: 250 }}>
-            Sidebar
-        </div>
-    )
-}
+import { SidebarData } from "./SidebarData";
+import "./Sidebar.css";
+
+
+const Sidebar: React.FC = () => {
+
+  return (
+    <div style={{ width: 250 }}>
+      <ul className="sidebarRows">
+        {SidebarData.map((val, key) => {
+            let Icon = val.icon;
+          return (
+            <li
+              key={key}
+              className="row"
+              id={val.path === window.location.pathname ? "active" : ""}
+              onClick={() => (window.location.pathname = val.path)}
+            >
+              <div id="iconContainer"><Icon /></div>
+
+              <div id="titleContainer">
+                <h3>{val.title}</h3>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+      <hr />
+    </div>
+  );
+};
+export default Sidebar;

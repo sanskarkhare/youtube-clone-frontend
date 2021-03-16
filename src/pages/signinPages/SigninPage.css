@@ -8,10 +8,15 @@
 }
 
 .signinPage .container {
-    border: 2px solid grey;
-    box-shadow: -5px 5px darkgray;
+    border: 1.5px solid #3367D6;
+    border-radius: 2%;
     width: 500px;
     height: 400px;
+    margin-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .signinPage .container .top {
@@ -23,6 +28,28 @@
 .signinPage .container .body {
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
+    flex-direction: column;
     height: 200px;
+}
+
+.signinPage .container .body input {
+    margin: 100px;
+    width: 200px;
+    height: 60px;
+    font-size: 15px;
+    padding-left: 10px;
+}
+
+#btn {
+    width: 180px;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    background-color: #000000;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 8px;
+    cursor: pointer;
 }
