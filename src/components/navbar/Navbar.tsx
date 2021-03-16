@@ -8,7 +8,7 @@ import { url } from 'inspector';
 
 const Navbar: React.FC = () => {
 
-            const [loggedin, setIsLoggedin] = useState<boolean>(true);
+            const [loggedin, setIsLoggedin] = useState<boolean>(false);
             const [profilePicture, setProfilePicture] = useState<string>("");
 
             useEffect(() => {
@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
                     ) : ( 
                         <button id="signinButton" onClick={() => {
                             window.location.pathname = "signin"
-                        }}>Sign In</button>
+                        }}>SignIn</button>
                 )}
             </div>
         </div>

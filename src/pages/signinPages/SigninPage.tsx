@@ -17,7 +17,7 @@ const SigninPage: React.FC = () => {
             const googleId = res.profileObj.googleId;
             const imageUrl = res.profileObj.imageUrl
 
-            Axios.post("http://localhost:5000/signin", {
+            Axios.post("http://localhost:5000/user", {
                 name: name,
                 email: email,
                 googleId: googleId,
