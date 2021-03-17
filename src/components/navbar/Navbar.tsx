@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './Navbar.css';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import VideoCallIcon from '@material-ui/icons/VideoCall';
-import { url } from 'inspector';
+import { ToggleSidebarContext } from '../../Helpers/Context';
 
 const Navbar: React.FC = () => {
 
             const [loggedin, setIsLoggedin] = useState<boolean>(false);
             const [profilePicture, setProfilePicture] = useState<string>("");
+            const { showSidebar, setShowSidebar } = useContext(ToggleSidebarContext);
 
             useEffect(() => {
                 if (sessionStorage.getItem("loggedIn") === "true") {
@@ -21,11 +22,15 @@ const Navbar: React.FC = () => {
     return (
         <div className="navbarContainer">
             <div className="left">
-                <button id="sidebarToggle">
+                <button id="sidebarToggle" onClick={() => setShowSidebar(!showSidebar)}>
                     <MenuIcon id="icon"/>
                 </button>
+
+            <div id="homeBtn" onClick={() => (window.location.pathname = '/')} >
                 <YouTubeIcon id="icon" style={{ color: "red"}} />
                 <h1>YouTube</h1>
+            </div>
+
             </div>
             <div className="center">
                 <input id="searchBar" placeholder="Search"/>
@@ -41,6 +46,7 @@ const Navbar: React.FC = () => {
                         <img 
                             id="profilePic"
                             src={profilePicture}
+                            onClick={() => (window.location.pathname = '/account')}
                         />
                     ) : ( 
                         <button id="signinButton" onClick={() => {

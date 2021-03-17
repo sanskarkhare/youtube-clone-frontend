@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
-
+import React from "react";
 import { SidebarData } from "./SidebarData";
 import "./Sidebar.css";
 
 
 const Sidebar: React.FC = () => {
 
+ 
   return (
     <div style={{ width: 250 }}>
       <ul className="sidebarRows">

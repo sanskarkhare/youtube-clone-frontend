@@ -18,6 +18,13 @@
    font-size: 30px;
 }
 
+.navbarContainer .left #homeBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
 .navbarContainer .left #sidebarToggle {
     border: none;
     background-color: transparent;
@@ -120,3 +127,4 @@
 .navbarContainer .right #profilePic:focus {
     outline: none;
 }
+
