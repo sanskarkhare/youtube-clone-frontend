@@ -95,6 +95,10 @@
     cursor: pointer;
 }
 
+.navbarContainer .right #createVideo:hover {
+    cursor: pointer;
+}
+
 .navbarContainer .right #profilePic {
     color: #232b2b;
     margin: 10px;

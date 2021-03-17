@@ -39,7 +39,10 @@ const Navbar: React.FC = () => {
                 </button>
             </div>
             <div className="right">
-                <button id="createVideo">
+                <button 
+                    id="createVideo"
+                    onClick={() => (window.location.pathname = '/upload')}
+                >
                     <VideoCallIcon  id="icon"/>
                 </button>
                 {loggedin ? (
