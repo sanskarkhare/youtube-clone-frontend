@@ -1,7 +1,20 @@
 import React from 'react';
 import './UploadPage.css';
+import Axios from 'axios';
+
 
 const UploadVideoForm: React.FC = () => {
+
+        const uploadThumbnail = (file : any) => {
+            const formData = new FormData();
+            formData.append("file", file[0]);
+            formData.append("upload_preset", process.env.REACT_APP_UPLOAD_PRESET as string);
+            Axios.post(`https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`, formData).then((response) => {
+            console.log(response);
+        })
+        }
+
+
     return (
         <div className="UploadVideoContainer">
 
@@ -22,6 +35,7 @@ const UploadVideoForm: React.FC = () => {
                     type="file"
                     id="uploadThumbnail"
                     style={{ display: "none" }}
+                    onChange={(e) => uploadThumbnail(e.target.files)}
                 />
                     <div id="uploadThumbnail">
                         <label htmlFor="uploadThumbnail"> - Select - </label>

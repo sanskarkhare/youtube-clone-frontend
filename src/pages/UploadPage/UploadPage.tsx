@@ -2,9 +2,26 @@ import React,{ useState } from 'react';
 import './UploadPage.css';
 import CloseIcon from "@material-ui/icons/Close";
 import UploadVideoForm from './UploadVideoForm';
+import Axios from 'axios';
 
 const UploadPage:React.FC = () => {
     const [fileSelected, setFileSelected] = useState(false);
+
+    const uploadVideo = (files: any) => {
+        const formData = new FormData();
+        formData.append('video', files[0]);
+        const config = {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        }
+        Axios.post('http://localhost:5000/upload/video', formData, config).then((response) => {
+            console.log('Video uploaded successfully')
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
+
     return (
         <div className="UploadPage">
             <div className="SelectFileContainer">
@@ -25,7 +42,7 @@ const UploadPage:React.FC = () => {
                         id="uploadInput"
                         accept="video/mp4"
                         style={{ display: "none" }}
-                        onChange={() => setFileSelected(true)}
+                        onChange={(e) => {uploadVideo(e.target.files)}}
                     />
                     <div id="uploadButton">
                         <label htmlFor="uploadInput">Select File</label>
