@@ -1,13 +1,12 @@
 import React,{ useState } from 'react';
 import './UploadPage.css';
-import CloseIcon from "@material-ui/icons/Close"
+import CloseIcon from "@material-ui/icons/Close";
+import UploadVideoForm from './UploadVideoForm';
 
 const UploadPage:React.FC = () => {
-    const [fileSelected, setFileSelected] = useState('');
+    const [fileSelected, setFileSelected] = useState(false);
     return (
         <div className="UploadPage">
-
-            {fileSelected == "" ? (
             <div className="SelectFileContainer">
                 <div className="topSection">
                     <div className="leftSide">
@@ -17,24 +16,28 @@ const UploadPage:React.FC = () => {
                         <CloseIcon id="closeIcon" />
                     </div>
                 </div>
-                <div className="body">
-                    <h4>Upload A video from your computer</h4>
+                <div className="body" id={fileSelected ? "Selected" : ""}>
+                {!fileSelected ? (
+                    <>
+                    <h4>Upload A Video From Your Computer</h4>
                     <input 
                         type="file"
                         id="uploadInput"
                         accept="video/mp4"
                         style={{ display: "none" }}
-                        onChange={(e) => setFileSelected(e.target.value)}
+                        onChange={() => setFileSelected(true)}
                     />
                     <div id="uploadButton">
                         <label htmlFor="uploadInput">Select File</label>
                     </div>
+                    </>
+                     ) : (
+                            <UploadVideoForm />
+                        )}
                 </div>
+                
             </div>
-            ) : (
-
-            <h1>{fileSelected}</h1>
-            )}
+           
             
         </div>
     )

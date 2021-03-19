@@ -52,12 +52,21 @@
     font-size: 30px;
 }
 
-.SelectFileContainer .body {
+
+
+.SelectFileContainer .body:not(#Selected) {
     flex: 90%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.SelectFileContainer #Selected {
+    flex: 90%;
+    width: 100%;
+    display: flex;
     flex-direction: column;
 }
 
@@ -79,5 +88,105 @@
 }
 
 .SelectFileContainer .body #uploadButton label:hover {
+    cursor: pointer;
+}
+
+.UploadVideoContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.UploadVideoContainer .titleContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.UploadVideoContainer input {
+    height: 40px;
+    border-radius: 7px;
+    border: 1px solid rgb(189, 181, 181);
+    padding-left: 20px;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.UploadVideoContainer .titleContainer input:focus {
+    border: 1.5px solid blue;
+    outline: none;
+}
+
+.UploadVideoContainer .descriptionContainer textarea:focus {
+    border: 1.3px solid blue;
+    outline: none;
+}
+
+.UploadVideoContainer label {
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.UploadVideoContainer .descriptionContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.UploadVideoContainer .descriptionContainer textarea {
+    border: 1px solid rgb(189, 181, 181);
+    height: 200px;
+    max-height: 150px;
+    min-height: 100px;
+    min-width: 50%;
+    max-width: 90%;
+    padding: 15px;
+    font-size: 15px;
+    margin-top: 7px;
+}
+
+.UploadVideoContainer .bottomSection {
+    display: flex;
+    flex-direction: row;
+}
+
+.UploadVideoContainer .bottomSection .thumbnailContainer {
+    flex: 60%;
+    height: 100%;
+}
+
+
+.UploadVideoContainer .bottomSection .thumbnailContainer #uploadThumbnail{
+    margin-top: 15px;
+    width: 150px;
+    height: 100px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    display: grid;
+    place-items: center;
+    background-color: lightgrey;
+}
+
+
+.UploadVideoContainer .bottomSection .thumbnailContainer #uploadThumbnail:hover, label:hover {
+    cursor: pointer;
+}
+
+.UploadVideoContainer .bottomSection .uploadButtonContainer {
+    flex: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.UploadVideoContainer .bottomSection .uploadButtonContainer button {
+    width: 130px;
+    height: 40px;
+    background-color: #075FD4;
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 3px;
     cursor: pointer;
 }
